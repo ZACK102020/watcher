@@ -1,0 +1,13 @@
+{
+  "departments": ["75", "77", "78", "91", "92", "93", "94", "95"],
+  "villes": [],
+  "prix_max": null,
+  "check_interval_minutes": 10,
+  "email": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender": "",
+    "password": "",
+    "receiver": ""
+  }
+}
