@@ -1,0 +1,36 @@
+name: CROUS Watcher
+
+on:
+  schedule:
+    - cron: "3,13,23,33,43,53 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install requests beautifulsoup4
+
+      - name: Run watcher
+        env:
+          CROUS_SMTP_SENDER: ${{ secrets.CROUS_SMTP_SENDER }}
+          CROUS_SMTP_PASSWORD: ${{ secrets.CROUS_SMTP_PASSWORD }}
+          CROUS_SMTP_RECEIVER: ${{ secrets.CROUS_SMTP_RECEIVER }}
+        run: python3 crous_watcher.py
+
+      - name: Commit l'état mis à jour (state + log)
+        run: |
+          git config user.name "crous-watcher-bot"
+          git config user.email "actions@github.com"
+          git add state.json crous_watcher.log || true
+          git diff --cached --quiet || git commit -m "update state [skip ci]"
+          git push || true
