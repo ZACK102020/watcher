@@ -337,6 +337,14 @@ def run_once(config):
     new_ids = set(matching.keys()) - seen_ids
     new_listings = [matching[i] for i in new_ids]
 
+    # IMPORTANT : on ACCUMULE les IDs déjà vus (union), on ne les remplace jamais.
+    # Le site CROUS ne renvoie pas ses résultats dans un ordre stable d'un scan à
+    # l'autre : un même logement peut "manquer" un scan puis réapparaître, sans
+    # avoir réellement disparu. Si on remplaçait seen_ids par matching.keys() à
+    # chaque fois, un logement raté une fois serait réenregistré comme "nouveau"
+    # au scan suivant → c'était la cause des emails avec 20-30 "nouveautés" en boucle.
+    updated_seen_ids = seen_ids | set(matching.keys())
+
     if new_listings:
         log(f"🎉 {len(new_listings)} nouvelle(s) annonce(s) !")
         try:
@@ -345,15 +353,14 @@ def run_once(config):
             log(f"❌ Erreur envoi email: {e}")
             # on ne met PAS à jour seen_ids pour ces annonces si l'email a échoué,
             # comme ça elles seront re-signalées au prochain run plutôt que perdues
-            new_ids_failed_to_notify = new_ids
-            state["seen_ids"] = list((set(matching.keys()) - new_ids_failed_to_notify))
+            state["seen_ids"] = list(seen_ids | (set(matching.keys()) - new_ids))
             state["last_total_matching"] = len(matching)
             save_state(state)
             return
     else:
         log("Rien de nouveau cette fois.")
 
-    state["seen_ids"] = list(matching.keys())
+    state["seen_ids"] = list(updated_seen_ids)
     state["last_total_matching"] = len(matching)
     state["last_success"] = time.strftime("%Y-%m-%d %H:%M:%S")
     save_state(state)
