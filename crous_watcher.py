@@ -177,6 +177,7 @@ def fetch_with_retry(session, url, params=None, max_retries=4, timeout=25):
         try:
             resp = session.get(url, params=params, timeout=timeout)
             resp.raise_for_status()
+            resp.encoding = "utf-8"  # le site est en UTF-8 ; requests devine parfois mal (mojibake sur les accents sinon)
             return resp
         except (requests.RequestException,) as e:
             last_error = e
@@ -358,19 +359,91 @@ def run_once(config):
     save_state(state)
 
 
+def fetch_light_signature(session):
+    """Check ultra-léger : récupère UNIQUEMENT la page 1 (pas les 60 pages)
+    et retourne une 'signature' (liste des IDs vus + nombre total de pages).
+    Si cette signature n'a pas bougé depuis le dernier check, on peut
+    raisonnablement supposer que rien de neuf n'est apparu, sans avoir
+    à tout re-scraper."""
+    resp = fetch_with_retry(session, BASE_URL)
+    soup = BeautifulSoup(resp.text, "html.parser")
+    total_pages = get_total_pages(soup)
+    page1_listings = parse_listings(soup)
+    signature = {
+        "total_pages": total_pages,
+        "page1_ids": sorted(page1_listings.keys()),
+    }
+    return signature
+
+
+def run_light_check(config):
+    """Check léger : 1 seule requête. Si rien n'a changé sur la page 1
+    (nouveaux logements ni total de pages), on s'arrête là sans scraper
+    les 60 pages. Permet un polling beaucoup plus fréquent sans surcharger
+    le site ni risquer de se faire bloquer."""
+    state = load_state()
+    session = requests.Session()
+    session.headers.update(HEADERS)
+
+    try:
+        signature = fetch_light_signature(session)
+    except Exception as e:
+        log(f"❌ Check léger impossible : {e}. On tente un check complet par sécurité.")
+        run_once(config)
+        return
+
+    last_signature = state.get("light_signature")
+
+    # Sécurité : même si rien n'a changé en apparence sur la page 1, on force un
+    # scan complet de temps en temps (toutes les ~10 min) pour rattraper le cas
+    # rare où un logement disparaît et un autre apparaît ailleurs que sur la
+    # page 1 (compensation qui ne bougerait ni le total de pages ni la page 1).
+    last_full_scan = state.get("last_success")
+    force_full = True
+    if last_full_scan:
+        try:
+            last_dt = time.mktime(time.strptime(last_full_scan, "%Y-%m-%d %H:%M:%S"))
+            force_full = (time.time() - last_dt) > 10 * 60
+        except ValueError:
+            force_full = True
+
+    if signature == last_signature and not force_full:
+        log("Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.")
+        return
+
+    if signature != last_signature:
+        log("🔎 Check léger : changement détecté sur la page 1 → scan complet.")
+    else:
+        log("🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.")
+
+    run_once(config)
+
+    # on met à jour la signature après le scan complet (qui vient de re-sauver le state)
+    state = load_state()
+    state["light_signature"] = signature
+    save_state(state)
+
+
 def main():
     config = load_config()
     loop_mode = "--loop" in sys.argv
+    full_scan_mode = "--full" in sys.argv
     interval_min = config.get("check_interval_minutes", 15)
 
     if not loop_mode:
-        run_once(config)
+        if full_scan_mode:
+            run_once(config)
+        else:
+            run_light_check(config)
         return
 
     log(f"Mode boucle activé — check toutes les {interval_min} minutes. Ctrl+C pour arrêter.")
     while True:
         try:
-            run_once(config)
+            if full_scan_mode:
+                run_once(config)
+            else:
+                run_light_check(config)
         except Exception as e:
             log(f"❌ Erreur inattendue pendant le check: {e}")
         log(f"⏳ Prochain check dans {interval_min} min...\n")
