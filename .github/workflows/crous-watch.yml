@@ -1,5 +1,4 @@
-   # trigger scheduler
-   name: CROUS Watcher
+name: CROUS Watcher
 
 on:
   schedule:
