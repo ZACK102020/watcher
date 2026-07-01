@@ -2,8 +2,17 @@ name: CROUS Watcher
 
 on:
   schedule:
-    - cron: "3,13,23,33,43,53 * * * *"
-  workflow_dispatch: {}
+    # Toutes les 5 min. GitHub ne garantit pas la précision à la minute près
+    # en cas de forte charge, mais reste généralement fiable à quelques minutes près.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}  # bouton "Run workflow" manuel dans l'onglet Actions
+
+# Empêche 2 exécutions de tourner en même temps : la suivante attend que
+# la précédente soit finie. Indispensable pour ne jamais perdre une mise à
+# jour de state.json à cause d'un push en conflit (cause des re-envois en boucle).
+concurrency:
+  group: crous-watcher
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -16,6 +25,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Reset state le 7 juillet à 6h (renvoie TOUT ce qui est encore dispo ce jour-là)
+        run: |
+          TODAY=$(TZ="Europe/Paris" date +%Y-%m-%d)
+          HOUR=$(TZ="Europe/Paris" date +%H)
+          if [ "$TODAY" = "2026-07-07" ] && [ "$HOUR" = "06" ]; then
+            echo "🔄 Reset du state pour la phase complémentaire du 7 juillet"
+            echo '{"seen_ids": []}' > state.json
+          fi
 
       - name: Install deps
         run: pip install requests beautifulsoup4
@@ -33,4 +51,5 @@ jobs:
           git config user.email "actions@github.com"
           git add state.json crous_watcher.log || true
           git diff --cached --quiet || git commit -m "update state [skip ci]"
+          git pull --rebase --autostash || true
           git push || true
