@@ -591,3 +591,4 @@
 [2026-07-02 17:51:46] Total: 1275 logements sur le site.
 [2026-07-02 17:51:46] 187 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-02 17:51:46] Rien de nouveau cette fois.
+[2026-07-02 18:00:58] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
