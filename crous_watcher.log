@@ -1527,3 +1527,15 @@
 [2026-07-03 12:01:56] Total: 1148 logements sur le site.
 [2026-07-03 12:01:56] 178 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-03 12:01:56] Rien de nouveau cette fois.
+[2026-07-03 12:10:38] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-07-03 12:10:38] Récupération des annonces CROUS (toutes pages)...
+[2026-07-03 12:10:39] Page 1/60 — 24 logements cumulés
+[2026-07-03 12:10:49] Page 10/60 — 240 logements cumulés
+[2026-07-03 12:11:00] Page 20/60 — 423 logements cumulés
+[2026-07-03 12:11:12] Page 30/60 — 618 logements cumulés
+[2026-07-03 12:11:23] Page 40/60 — 720 logements cumulés
+[2026-07-03 12:11:34] Page 50/60 — 883 logements cumulés
+[2026-07-03 12:11:45] Page 60/60 — 1077 logements cumulés
+[2026-07-03 12:11:45] Total: 1077 logements sur le site.
+[2026-07-03 12:11:45] 171 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-03 12:11:45] Rien de nouveau cette fois.
