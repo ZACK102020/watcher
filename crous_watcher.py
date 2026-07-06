@@ -24,7 +24,12 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "https://trouverunlogement.lescrous.fr/tools/45/search"
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; CrousWatcher/1.0; usage personnel)"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
 }
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -95,6 +100,21 @@ def get_total_pages(soup):
     if m:
         return int(m.group(1))
     return 1
+
+
+def get_total_count(soup):
+    """Extrait le nombre total de logements affiché ('X logements trouvés en
+    France'). Beaucoup plus précis que le nombre de pages pour le check léger :
+    ça bouge dès qu'UN SEUL logement est ajouté ou retiré, contrairement au
+    nombre de pages qui ne change qu'après ~24 logements d'écart."""
+    text = soup.get_text()
+    m = re.search(r"([\d\s]+)\s*logements?\s+trouvés", text, re.IGNORECASE)
+    if m:
+        try:
+            return int(m.group(1).replace(" ", "").replace("\xa0", ""))
+        except ValueError:
+            return None
+    return None
 
 
 def parse_listings(soup):
@@ -170,8 +190,11 @@ def parse_listings(soup):
     return listings
 
 
-def fetch_with_retry(session, url, params=None, max_retries=4, timeout=25):
-    """GET avec retries + backoff exponentiel. Lève une exception si tout échoue."""
+def fetch_with_retry(session, url, params=None, max_retries=6, timeout=25):
+    """GET avec retries + backoff exponentiel. Lève une exception si tout échoue.
+    max_retries=6 (au lieu de 4) car le site CROUS renvoie parfois un 404 passager
+    (probable protection anti-bot ou instabilité serveur) qui se résout tout seul
+    en attendant un peu plus longtemps."""
     last_error = None
     for attempt in range(1, max_retries + 1):
         try:
@@ -181,7 +204,7 @@ def fetch_with_retry(session, url, params=None, max_retries=4, timeout=25):
             return resp
         except (requests.RequestException,) as e:
             last_error = e
-            wait = 2 ** attempt  # 2s, 4s, 8s, 16s
+            wait = min(2 ** attempt, 60)  # 2s, 4s, 8s, 16s, 32s, 60s (plafonné)
             log(f"⚠️  Requête échouée (tentative {attempt}/{max_retries}) — {e}. Nouvelle tentative dans {wait}s.")
             time.sleep(wait)
     raise RuntimeError(f"Échec définitif après {max_retries} tentatives sur {url}: {last_error}")
@@ -368,15 +391,17 @@ def run_once(config):
 
 def fetch_light_signature(session):
     """Check ultra-léger : récupère UNIQUEMENT la page 1 (pas les 60 pages)
-    et retourne une 'signature' (liste des IDs vus + nombre total de pages).
-    Si cette signature n'a pas bougé depuis le dernier check, on peut
-    raisonnablement supposer que rien de neuf n'est apparu, sans avoir
-    à tout re-scraper."""
+    et retourne une 'signature' (total exact affiché sur le site + IDs de la
+    page 1 + nombre de pages). Le total exact ('X logements trouvés en
+    France') est le signal le plus fin : il bouge dès qu'UN SEUL logement
+    change, contrairement au nombre de pages (~24 logements de marge)."""
     resp = fetch_with_retry(session, BASE_URL)
     soup = BeautifulSoup(resp.text, "html.parser")
+    total_count = get_total_count(soup)
     total_pages = get_total_pages(soup)
     page1_listings = parse_listings(soup)
     signature = {
+        "total_count": total_count,
         "total_pages": total_pages,
         "page1_ids": sorted(page1_listings.keys()),
     }
