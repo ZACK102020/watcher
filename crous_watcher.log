@@ -5167,3 +5167,10 @@
 [2026-07-07 07:55:25] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-07 07:55:25] ⚠️ Anomalie: 0 logements trouvés vs 182 au dernier run (chute >70%).
 [2026-07-07 07:55:26] 📧 Email d'alerte envoyé : Anomalie détectée (chute brutale du nombre d'annonces)
+[2026-07-07 08:01:01] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/45/search (Caused by NewConnectionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to establish a new connection: [Errno 111] Connection refused")). Nouvelle tentative dans 2s.
+[2026-07-07 08:01:09] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-07-07 08:01:09] Récupération des annonces CROUS (toutes pages)...
+[2026-07-07 08:01:13] Page 1/1 — 0 logements cumulés
+[2026-07-07 08:01:13] Total: 0 logements sur le site.
+[2026-07-07 08:01:13] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-07 08:01:13] Rien de nouveau cette fois.
