@@ -5197,3 +5197,4 @@
 [2026-07-07 08:30:57] Rien de nouveau cette fois.
 [2026-07-07 08:35:32] ⚠️  Requête échouée (tentative 1/6) — ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')). Nouvelle tentative dans 2s.
 [2026-07-07 08:35:40] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-07-07 08:40:35] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
