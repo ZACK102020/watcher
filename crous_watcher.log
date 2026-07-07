@@ -5160,3 +5160,10 @@
 [2026-07-07 07:51:43] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 60s.
 [2026-07-07 07:52:43] ❌ Scraping impossible : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/45/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search
 [2026-07-07 07:52:44] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-07-07 07:55:24] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-07-07 07:55:24] Récupération des annonces CROUS (toutes pages)...
+[2026-07-07 07:55:25] Page 1/1 — 0 logements cumulés
+[2026-07-07 07:55:25] Total: 0 logements sur le site.
+[2026-07-07 07:55:25] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-07 07:55:25] ⚠️ Anomalie: 0 logements trouvés vs 182 au dernier run (chute >70%).
+[2026-07-07 07:55:26] 📧 Email d'alerte envoyé : Anomalie détectée (chute brutale du nombre d'annonces)
