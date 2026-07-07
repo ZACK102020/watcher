@@ -5186,3 +5186,5 @@
 [2026-07-07 08:16:34] Rien de nouveau cette fois.
 [2026-07-07 08:20:41] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/45/search (Caused by NewConnectionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to establish a new connection: [Errno 111] Connection refused")). Nouvelle tentative dans 2s.
 [2026-07-07 08:20:49] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-07-07 08:25:34] ⚠️  Requête échouée (tentative 1/6) — ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')). Nouvelle tentative dans 2s.
+[2026-07-07 08:25:43] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
