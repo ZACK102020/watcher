@@ -5184,3 +5184,5 @@
 [2026-07-07 08:16:34] Total: 0 logements sur le site.
 [2026-07-07 08:16:34] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-07 08:16:34] Rien de nouveau cette fois.
+[2026-07-07 08:20:41] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/45/search (Caused by NewConnectionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to establish a new connection: [Errno 111] Connection refused")). Nouvelle tentative dans 2s.
+[2026-07-07 08:20:49] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
