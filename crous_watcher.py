@@ -22,7 +22,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-BASE_URL = "https://trouverunlogement.lescrous.fr/tools/45/search"
+BASE_URL = "https://trouverunlogement.lescrous.fr/tools/47/search"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
@@ -120,7 +120,7 @@ def get_total_count(soup):
 def parse_listings(soup):
     """Extrait chaque logement à partir des liens /accommodations/{id}."""
     listings = {}
-    links = soup.find_all("a", href=re.compile(r"/tools/45/accommodations/\d+"))
+    links = soup.find_all("a", href=re.compile(r"/tools/\d+/accommodations/\d+"))
     for link in links:
         href = link["href"]
         m = re.search(r"/accommodations/(\d+)", href)
@@ -144,7 +144,7 @@ def parse_listings(soup):
             candidate = block.parent
             ids_in_candidate = {
                 re.search(r"/accommodations/(\d+)", a["href"]).group(1)
-                for a in candidate.find_all("a", href=re.compile(r"/tools/45/accommodations/\d+"))
+                for a in candidate.find_all("a", href=re.compile(r"/tools/\d+/accommodations/\d+"))
             }
             if len(ids_in_candidate) > 1:
                 break  # candidate englobe déjà un autre logement, on n'y monte pas
@@ -289,9 +289,29 @@ def send_email(config, new_listings):
     log(f"✅ Email envoyé à {email_cfg['receiver']} ({len(new_listings)} annonces)")
 
 
-def send_alert_email(config, subject, body):
+ALERT_COOLDOWN_MINUTES = 45  # ne pas renvoyer la MÊME alerte plus d'une fois toutes les 45 min
+
+
+def send_alert_email(config, subject, body, cooldown_key=None):
     """Email d'alerte technique — utilisé quand le scraper échoue ou détecte une anomalie,
-    pour ne jamais rater une annonce à cause d'un bug silencieux."""
+    pour ne jamais rater une annonce à cause d'un bug silencieux.
+
+    cooldown_key : si fourni, on ne renvoie cette alerte que toutes les
+    ALERT_COOLDOWN_MINUTES minutes max, pour éviter de spammer la boîte mail
+    pendant une panne prolongée du site (ex: 90 emails en une nuit)."""
+    if cooldown_key:
+        state = load_state()
+        last_alerts = state.get("last_alert_sent", {})
+        last_sent_str = last_alerts.get(cooldown_key)
+        if last_sent_str:
+            try:
+                last_sent = time.mktime(time.strptime(last_sent_str, "%Y-%m-%d %H:%M:%S"))
+                if (time.time() - last_sent) < ALERT_COOLDOWN_MINUTES * 60:
+                    log(f"🔇 Alerte '{cooldown_key}' déjà envoyée récemment, on n'en renvoie pas (cooldown {ALERT_COOLDOWN_MINUTES}min).")
+                    return
+            except ValueError:
+                pass
+
     email_cfg = config["email"]
     msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = f"⚠️ CROUS Watcher — {subject}"
@@ -302,6 +322,11 @@ def send_alert_email(config, subject, body):
         server.login(email_cfg["sender"], email_cfg["password"])
         server.sendmail(email_cfg["sender"], [email_cfg["receiver"]], msg.as_string())
     log(f"📧 Email d'alerte envoyé : {subject}")
+
+    if cooldown_key:
+        state = load_state()
+        state.setdefault("last_alert_sent", {})[cooldown_key] = time.strftime("%Y-%m-%d %H:%M:%S")
+        save_state(state)
 
 
 def run_once(config):
@@ -320,6 +345,7 @@ def run_once(config):
                 "Le scraping a échoué",
                 f"Le script n'a pas réussi à récupérer les annonces après plusieurs tentatives.\n"
                 f"Erreur : {e}\n\nVérifie manuellement le site : {BASE_URL}",
+                cooldown_key="scraping_echoue",
             )
         except Exception as mail_err:
             log(f"❌ Impossible d'envoyer l'email d'alerte non plus : {mail_err}")
@@ -338,6 +364,28 @@ def run_once(config):
     }
     log(f"{len(matching)} logements correspondent à tes filtres (départements={departments}, villes={villes}).")
 
+    # --- Garde-fou ABSOLU : 0 résultat = toujours suspect, peu importe l'historique ---
+    # Le site CROUS a toujours au moins plusieurs centaines de logements réels.
+    # Un total de 0 (ou une page cassée) ne peut être qu'un signe que le site est en
+    # surcharge / cassé / bloqué — jamais une vraie donnée. On alerte à CHAQUE fois
+    # que ça arrive (pas juste une fois), et on ne sauvegarde jamais un 0 comme
+    # référence, pour ne pas désactiver le garde-fou relatif ci-dessous.
+    if len(all_listings) == 0:
+        log("⚠️ Anomalie absolue : 0 logement sur tout le site (page cassée/surchargée). On alerte et on ignore ce run.")
+        try:
+            send_alert_email(
+                config,
+                "Le site renvoie 0 résultat (probablement surchargé ou cassé)",
+                f"Le scan a réussi techniquement mais a trouvé 0 logement sur tout le site, "
+                f"ce qui n'arrive jamais en temps normal. Le site est probablement en surcharge "
+                f"('VOUS ÊTES TROP NOMBREUX') ou temporairement cassé.\n\n"
+                f"Vérifie manuellement : {BASE_URL}",
+                cooldown_key="zero_resultat",
+            )
+        except Exception as mail_err:
+            log(f"❌ Impossible d'envoyer l'email d'alerte: {mail_err}")
+        return  # on ne touche JAMAIS au state avec un total de 0
+
     # --- Garde-fou anti "échec silencieux" ---
     # Si le nombre de logements matchés s'effondre brutalement par rapport au run
     # précédent (ex: le site a changé de structure et le parsing casse), on alerte
@@ -352,6 +400,7 @@ def run_once(config):
                 f"Ce run : {len(matching)} logements correspondants.\n\n"
                 f"Le site a peut-être changé de structure (le parsing casse silencieusement), "
                 f"ou c'est une vraie chute de dispo. Vérifie manuellement : {BASE_URL}",
+                cooldown_key="chute_brutale",
             )
         except Exception as mail_err:
             log(f"❌ Impossible d'envoyer l'email d'alerte: {mail_err}")
