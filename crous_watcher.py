@@ -210,11 +210,38 @@ def fetch_with_retry(session, url, params=None, max_retries=6, timeout=25):
     raise RuntimeError(f"Échec définitif après {max_retries} tentatives sur {url}: {last_error}")
 
 
-def fetch_all_listings(max_pages_safety=150):
+HOMEPAGE_URL = "https://trouverunlogement.lescrous.fr/"
+
+
+def discover_search_url(session):
+    """Va chercher sur la page d'accueil le lien 'Pour l'année prochaine' et en extrait
+    l'URL de recherche à jour (ex: /tools/47/search). Permet au bot de se corriger
+    tout seul si le CROUS change encore l'identifiant de l'outil (45 -> 47 -> ...)
+    sans qu'on ait besoin de modifier le code à chaque fois."""
+    resp = fetch_with_retry(session, HOMEPAGE_URL, max_retries=3, timeout=15)
+    soup = BeautifulSoup(resp.text, "html.parser")
+    for a in soup.find_all("a", href=True):
+        text = a.get_text(strip=True).lower()
+        href = a["href"]
+        if "prochaine" in text and re.search(r"/tools/\d+/search", href):
+            full_url = href if href.startswith("http") else f"https://trouverunlogement.lescrous.fr{href}"
+            return full_url
+    raise RuntimeError("Lien 'Pour l'année prochaine' introuvable sur la page d'accueil")
+
+
+def get_search_url(state):
+    """Renvoie l'URL de recherche à utiliser : celle mémorisée dans state.json si
+    disponible (découverte lors d'un run précédent), sinon la valeur par défaut
+    codée en dur (qui peut devenir obsolète, d'où l'intérêt de la découverte auto)."""
+    return state.get("search_url", BASE_URL)
+
+
+def fetch_all_listings(search_url=None, max_pages_safety=150):
+    search_url = search_url or BASE_URL
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    first_resp = fetch_with_retry(session, BASE_URL)
+    first_resp = fetch_with_retry(session, search_url)
     soup = BeautifulSoup(first_resp.text, "html.parser")
     total_pages = min(get_total_pages(soup), max_pages_safety)
 
@@ -223,7 +250,7 @@ def fetch_all_listings(max_pages_safety=150):
     log(f"Page 1/{total_pages} — {len(all_listings)} logements cumulés")
 
     for page in range(2, total_pages + 1):
-        resp = fetch_with_retry(session, BASE_URL, params={"page": page})
+        resp = fetch_with_retry(session, search_url, params={"page": page})
         page_soup = BeautifulSoup(resp.text, "html.parser")
         all_listings.update(parse_listings(page_soup))
         if page % 10 == 0 or page == total_pages:
@@ -333,23 +360,42 @@ def run_once(config):
     state = load_state()
     seen_ids = set(state.get("seen_ids", []))
     last_total_matching = state.get("last_total_matching")
+    search_url = get_search_url(state)
 
     log("Récupération des annonces CROUS (toutes pages)...")
     try:
-        all_listings = fetch_all_listings()
+        all_listings = fetch_all_listings(search_url=search_url)
     except Exception as e:
-        log(f"❌ Scraping impossible : {e}")
+        log(f"❌ Scraping impossible avec {search_url} : {e}")
+        log("🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...")
         try:
-            send_alert_email(
-                config,
-                "Le scraping a échoué",
-                f"Le script n'a pas réussi à récupérer les annonces après plusieurs tentatives.\n"
-                f"Erreur : {e}\n\nVérifie manuellement le site : {BASE_URL}",
-                cooldown_key="scraping_echoue",
-            )
-        except Exception as mail_err:
-            log(f"❌ Impossible d'envoyer l'email d'alerte non plus : {mail_err}")
-        return  # on ne touche pas au state, on retentera au prochain run
+            discover_session = requests.Session()
+            discover_session.headers.update(HEADERS)
+            new_url = discover_search_url(discover_session)
+            if new_url != search_url:
+                log(f"✅ Nouvelle URL découverte : {new_url} (ancienne : {search_url})")
+                state["search_url"] = new_url
+                save_state(state)
+                all_listings = fetch_all_listings(search_url=new_url)
+                search_url = new_url
+            else:
+                raise RuntimeError("La découverte a renvoyé la même URL, le site est probablement juste indisponible.")
+        except Exception as e2:
+            log(f"❌ Redécouverte automatique impossible non plus : {e2}")
+            try:
+                send_alert_email(
+                    config,
+                    "Le scraping a échoué",
+                    f"Le script n'a pas réussi à récupérer les annonces, même après avoir tenté de "
+                    f"redécouvrir automatiquement l'URL (le CROUS a peut-être changé l'ID de l'outil, "
+                    f"ou le site est simplement indisponible).\n"
+                    f"URL utilisée : {search_url}\nErreur d'origine : {e}\n\n"
+                    f"Vérifie manuellement le site : {HOMEPAGE_URL}",
+                    cooldown_key="scraping_echoue",
+                )
+            except Exception as mail_err:
+                log(f"❌ Impossible d'envoyer l'email d'alerte non plus : {mail_err}")
+            return  # on ne touche pas au state, on retentera au prochain run
 
     log(f"Total: {len(all_listings)} logements sur le site.")
 
@@ -438,13 +484,14 @@ def run_once(config):
     save_state(state)
 
 
-def fetch_light_signature(session):
+def fetch_light_signature(session, search_url=None):
     """Check ultra-léger : récupère UNIQUEMENT la page 1 (pas les 60 pages)
     et retourne une 'signature' (total exact affiché sur le site + IDs de la
     page 1 + nombre de pages). Le total exact ('X logements trouvés en
     France') est le signal le plus fin : il bouge dès qu'UN SEUL logement
     change, contrairement au nombre de pages (~24 logements de marge)."""
-    resp = fetch_with_retry(session, BASE_URL)
+    search_url = search_url or BASE_URL
+    resp = fetch_with_retry(session, search_url)
     soup = BeautifulSoup(resp.text, "html.parser")
     total_count = get_total_count(soup)
     total_pages = get_total_pages(soup)
@@ -463,13 +510,23 @@ def run_light_check(config):
     les 60 pages. Permet un polling beaucoup plus fréquent sans surcharger
     le site ni risquer de se faire bloquer."""
     state = load_state()
+    search_url = get_search_url(state)
     session = requests.Session()
     session.headers.update(HEADERS)
 
     try:
-        signature = fetch_light_signature(session)
+        signature = fetch_light_signature(session, search_url=search_url)
     except Exception as e:
-        log(f"❌ Check léger impossible : {e}. On tente un check complet par sécurité.")
+        log(f"❌ Check léger impossible avec {search_url} : {e}. Tentative de redécouverte automatique...")
+        try:
+            new_url = discover_search_url(session)
+            if new_url != search_url:
+                log(f"✅ Nouvelle URL découverte : {new_url}")
+                state["search_url"] = new_url
+                save_state(state)
+        except Exception as e2:
+            log(f"❌ Redécouverte impossible non plus : {e2}")
+        log("On tente un check complet par sécurité.")
         run_once(config)
         return
 
