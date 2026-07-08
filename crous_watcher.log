@@ -6511,3 +6511,19 @@
 [2026-07-08 02:08:38] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 60s.
 [2026-07-08 02:09:38] ❌ Scraping impossible : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/45/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search
 [2026-07-08 02:09:39] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-07-08 02:10:42] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 2s.
+[2026-07-08 02:10:44] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 4s.
+[2026-07-08 02:10:49] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 8s.
+[2026-07-08 02:10:57] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 16s.
+[2026-07-08 02:11:13] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 32s.
+[2026-07-08 02:11:46] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 60s.
+[2026-07-08 02:12:46] ❌ Check léger impossible : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/45/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. On tente un check complet par sécurité.
+[2026-07-08 02:12:46] Récupération des annonces CROUS (toutes pages)...
+[2026-07-08 02:12:47] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 2s.
+[2026-07-08 02:12:49] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 4s.
+[2026-07-08 02:12:54] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 8s.
+[2026-07-08 02:13:02] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 16s.
+[2026-07-08 02:13:18] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 32s.
+[2026-07-08 02:13:51] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search. Nouvelle tentative dans 60s.
+[2026-07-08 02:14:51] ❌ Scraping impossible : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/45/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/45/search
+[2026-07-08 02:14:53] 📧 Email d'alerte envoyé : Le scraping a échoué
