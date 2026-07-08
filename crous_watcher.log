@@ -7535,3 +7535,12 @@
 [2026-07-08 10:00:53] Total: 24 logements sur le site.
 [2026-07-08 10:00:53] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-08 10:00:53] Rien de nouveau cette fois.
+[2026-07-08 10:05:27] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-07-08 10:05:29] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/availability. Nouvelle tentative dans 4s.
+[2026-07-08 10:05:34] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-07-08 10:05:34] Récupération des annonces CROUS (toutes pages)...
+[2026-07-08 10:05:35] Page 1/2 — 24 logements cumulés
+[2026-07-08 10:05:35] Page 2/2 — 25 logements cumulés
+[2026-07-08 10:05:36] Total: 25 logements sur le site.
+[2026-07-08 10:05:36] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-08 10:05:36] Rien de nouveau cette fois.
