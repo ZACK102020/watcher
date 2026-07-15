@@ -17903,3 +17903,13 @@
 [2026-07-15 23:15:39] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-07-15 23:15:39] Rien de nouveau cette fois.
 [2026-07-15 23:20:50] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-07-15 23:25:49] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-07-15 23:25:49] Récupération des annonces CROUS (toutes pages)...
+[2026-07-15 23:26:14] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Read timed out. (read timeout=25). Nouvelle tentative dans 2s.
+[2026-07-15 23:26:42] ⚠️  Requête échouée (tentative 2/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Read timed out. (read timeout=25). Nouvelle tentative dans 4s.
+[2026-07-15 23:27:11] ⚠️  Requête échouée (tentative 3/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Read timed out. (read timeout=25). Nouvelle tentative dans 8s.
+[2026-07-15 23:27:21] Page 1/2 — 24 logements cumulés
+[2026-07-15 23:27:21] Page 2/2 — 26 logements cumulés
+[2026-07-15 23:27:22] Total: 26 logements sur le site.
+[2026-07-15 23:27:22] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-15 23:27:22] Rien de nouveau cette fois.
