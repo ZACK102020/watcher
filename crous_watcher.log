@@ -23773,3 +23773,10 @@
 [2026-07-20 12:55:38] ⚠️  Requête échouée (tentative 3/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
 [2026-07-20 12:55:46] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/
 [2026-07-20 12:55:46] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
+[2026-07-20 13:00:53] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-07-20 13:00:53] Récupération des annonces CROUS (toutes pages)...
+[2026-07-20 13:00:54] Page 1/2 — 24 logements cumulés
+[2026-07-20 13:00:54] Page 2/2 — 31 logements cumulés
+[2026-07-20 13:00:54] Total: 31 logements sur le site.
+[2026-07-20 13:00:54] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-07-20 13:00:54] Rien de nouveau cette fois.
