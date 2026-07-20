@@ -23721,3 +23721,29 @@
 [2026-07-20 12:40:10] ⚠️  Requête échouée (tentative 3/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
 [2026-07-20 12:40:18] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/
 [2026-07-20 12:40:19] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-07-20 12:40:34] ⚠️  Requête échouée (tentative 1/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-07-20 12:40:37] ⚠️  Requête échouée (tentative 2/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-07-20 12:40:42] ⚠️  Requête échouée (tentative 3/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-07-20 12:40:51] ⚠️  Requête échouée (tentative 4/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-07-20 12:41:09] ⚠️  Requête échouée (tentative 5/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-07-20 12:41:42] ⚠️  Requête échouée (tentative 6/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-07-20 12:42:42] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-07-20 12:42:43] ⚠️  Requête échouée (tentative 1/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 2s.
+[2026-07-20 12:42:46] ⚠️  Requête échouée (tentative 2/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 4s.
+[2026-07-20 12:42:51] ⚠️  Requête échouée (tentative 3/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
+[2026-07-20 12:42:59] ❌ Redécouverte impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/
+[2026-07-20 12:42:59] On tente un check complet par sécurité.
+[2026-07-20 12:42:59] Récupération des annonces CROUS (toutes pages)...
+[2026-07-20 12:43:00] ⚠️  Requête échouée (tentative 1/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-07-20 12:43:04] ⚠️  Requête échouée (tentative 2/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-07-20 12:43:09] ⚠️  Requête échouée (tentative 3/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-07-20 12:43:18] ⚠️  Requête échouée (tentative 4/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-07-20 12:43:35] ⚠️  Requête échouée (tentative 5/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-07-20 12:44:08] ⚠️  Requête échouée (tentative 6/6) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-07-20 12:45:08] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-07-20 12:45:08] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-07-20 12:45:09] ⚠️  Requête échouée (tentative 1/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 2s.
+[2026-07-20 12:45:12] ⚠️  Requête échouée (tentative 2/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 4s.
+[2026-07-20 12:45:17] ⚠️  Requête échouée (tentative 3/3) — 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
+[2026-07-20 12:45:25] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 503 Server Error: Service Unavailable for url: https://trouverunlogement.lescrous.fr/
+[2026-07-20 12:45:25] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
