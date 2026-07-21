@@ -3,7 +3,7 @@
     "363"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-07-21 07:35:32",
+  "last_success": "2026-07-21 07:45:38",
   "light_signature": {
     "total_count": null,
     "total_pages": 2,
@@ -27,11 +27,11 @@
       "2993",
       "3105",
       "3106",
+      "3248",
       "3259",
-      "506",
       "530",
       "540",
-      "910"
+      "943"
     ]
   },
   "last_alert_sent": {
