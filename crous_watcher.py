@@ -66,6 +66,7 @@ def load_config():
         "CROUS_SMTP_SENDER": "sender",
         "CROUS_SMTP_PASSWORD": "password",
         "CROUS_SMTP_RECEIVER": "receiver",
+        "CROUS_SMTP_ALERT_RECEIVER": "alert_receiver",
     }
     for env_var, key in env_map.items():
         val = os.environ.get(env_var)
@@ -290,8 +291,16 @@ def matches_filters(listing, departments, villes, prix_max):
     return True
 
 
+def parse_receivers(receiver_field):
+    """Le champ 'receiver' peut contenir une seule adresse ou plusieurs séparées
+    par des virgules (ex: 'toi@gmail.com, tacopine@gmail.com'). Renvoie toujours
+    une liste propre, sans espaces superflus."""
+    return [addr.strip() for addr in receiver_field.split(",") if addr.strip()]
+
+
 def send_email(config, new_listings):
     email_cfg = config["email"]
+    receivers = parse_receivers(email_cfg["receiver"])
 
     subject = f"🏠 {len(new_listings)} nouvelle(s) annonce(s) CROUS disponible(s) !"
     lines = [f"Nouvelles annonces détectées ({len(new_listings)}) :\n"]
@@ -306,14 +315,14 @@ def send_email(config, new_listings):
     msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = subject
     msg["From"] = email_cfg["sender"]
-    msg["To"] = email_cfg["receiver"]
+    msg["To"] = ", ".join(receivers)
 
     with smtplib.SMTP(email_cfg["smtp_server"], email_cfg["smtp_port"]) as server:
         server.starttls()
         server.login(email_cfg["sender"], email_cfg["password"])
-        server.sendmail(email_cfg["sender"], [email_cfg["receiver"]], msg.as_string())
+        server.sendmail(email_cfg["sender"], receivers, msg.as_string())
 
-    log(f"✅ Email envoyé à {email_cfg['receiver']} ({len(new_listings)} annonces)")
+    log(f"✅ Email envoyé à {', '.join(receivers)} ({len(new_listings)} annonces)")
 
 
 ALERT_COOLDOWN_MINUTES = 45  # ne pas renvoyer la MÊME alerte plus d'une fois toutes les 45 min
@@ -340,14 +349,19 @@ def send_alert_email(config, subject, body, cooldown_key=None):
                 pass
 
     email_cfg = config["email"]
+    # Les alertes techniques (erreurs de scraping, anomalies) ne partent QUE vers
+    # 'alert_receiver' si défini, pour ne pas spammer tout le monde avec des
+    # histoires de bugs — 'receiver' (potentiellement plusieurs adresses) sert
+    # uniquement aux vraies annonces de logements.
+    alert_receivers = parse_receivers(email_cfg.get("alert_receiver") or email_cfg["receiver"])
     msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = f"⚠️ CROUS Watcher — {subject}"
     msg["From"] = email_cfg["sender"]
-    msg["To"] = email_cfg["receiver"]
+    msg["To"] = ", ".join(alert_receivers)
     with smtplib.SMTP(email_cfg["smtp_server"], email_cfg["smtp_port"]) as server:
         server.starttls()
         server.login(email_cfg["sender"], email_cfg["password"])
-        server.sendmail(email_cfg["sender"], [email_cfg["receiver"]], msg.as_string())
+        server.sendmail(email_cfg["sender"], alert_receivers, msg.as_string())
     log(f"📧 Email d'alerte envoyé : {subject}")
 
     if cooldown_key:
