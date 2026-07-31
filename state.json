@@ -4,11 +4,12 @@
     "1716"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-07-31 10:35:35",
+  "last_success": "2026-07-31 10:40:38",
   "light_signature": {
     "total_count": null,
     "total_pages": 2,
     "page1_ids": [
+      "1192",
       "1197",
       "1211",
       "1224",
@@ -30,7 +31,6 @@
       "506",
       "516",
       "522",
-      "540",
       "736",
       "910"
     ]
