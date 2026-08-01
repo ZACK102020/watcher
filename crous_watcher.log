@@ -39608,3 +39608,10 @@
 [2026-08-01 23:41:13] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
 [2026-08-01 23:45:36] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
 [2026-08-01 23:50:30] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-01 23:55:24] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-08-01 23:55:24] Récupération des annonces CROUS (toutes pages)...
+[2026-08-01 23:55:25] Page 1/2 — 24 logements cumulés
+[2026-08-01 23:55:25] Page 2/2 — 26 logements cumulés
+[2026-08-01 23:55:26] Total: 26 logements sur le site.
+[2026-08-01 23:55:26] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-01 23:55:26] Rien de nouveau cette fois.
