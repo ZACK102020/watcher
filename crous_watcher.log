@@ -43037,3 +43037,4 @@
 [2026-08-04 22:30:44] Rien de nouveau cette fois.
 [2026-08-04 22:31:45] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Read timed out. (read timeout=25). Nouvelle tentative dans 2s.
 [2026-08-04 22:32:06] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-04 22:35:25] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
