@@ -43,6 +43,7 @@ jobs:
           CROUS_SMTP_SENDER: ${{ secrets.CROUS_SMTP_SENDER }}
           CROUS_SMTP_PASSWORD: ${{ secrets.CROUS_SMTP_PASSWORD }}
           CROUS_SMTP_RECEIVER: ${{ secrets.CROUS_SMTP_RECEIVER }}
+          CROUS_SMTP_ALERT_RECEIVER: ${{ secrets.CROUS_SMTP_ALERT_RECEIVER }}
         run: python3 crous_watcher.py
 
       - name: Commit l'état mis à jour (state + log)
