@@ -44755,3 +44755,10 @@
 [2026-08-06 11:45:43] Rien de nouveau cette fois.
 [2026-08-06 11:50:42] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
 [2026-08-06 11:55:30] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-06 12:00:58] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-08-06 12:00:58] Récupération des annonces CROUS (toutes pages)...
+[2026-08-06 12:00:59] Page 1/1 — 0 logements cumulés
+[2026-08-06 12:00:59] Total: 0 logements sur le site.
+[2026-08-06 12:00:59] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-06 12:00:59] ⚠️ Anomalie absolue : 0 logement sur tout le site (page cassée/surchargée). On alerte et on ignore ce run.
+[2026-08-06 12:01:01] 📧 Email d'alerte envoyé : Le site renvoie 0 résultat (probablement surchargé ou cassé)
