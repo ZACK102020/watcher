@@ -4,7 +4,7 @@
     "363"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-08-06 14:30:47",
+  "last_success": "2026-08-06 14:33:48",
   "light_signature": {
     "total_count": null,
     "total_pages": 1,
@@ -29,8 +29,7 @@
       "516",
       "522",
       "709",
-      "910",
-      "950"
+      "910"
     ]
   },
   "last_alert_sent": {
