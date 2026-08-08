@@ -46694,3 +46694,9 @@
 [2026-08-08 12:30:49] ⚠️ Anomalie absolue : 0 logement sur tout le site (page cassée/surchargée). On alerte et on ignore ce run.
 [2026-08-08 12:30:50] 📧 Email d'alerte envoyé : Le site renvoie 0 résultat (probablement surchargé ou cassé)
 [2026-08-08 12:35:26] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-08 12:40:35] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-08-08 12:40:35] Récupération des annonces CROUS (toutes pages)...
+[2026-08-08 12:40:36] Page 1/1 — 17 logements cumulés
+[2026-08-08 12:40:36] Total: 17 logements sur le site.
+[2026-08-08 12:40:36] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-08 12:40:36] Rien de nouveau cette fois.
