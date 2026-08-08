@@ -47165,3 +47165,4 @@
 [2026-08-08 23:05:28] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-08-08 23:05:28] ⚠️ Anomalie absolue : 0 logement sur tout le site (page cassée/surchargée). On alerte et on ignore ce run.
 [2026-08-08 23:05:30] 📧 Email d'alerte envoyé : Le site renvoie 0 résultat (probablement surchargé ou cassé)
+[2026-08-08 23:10:40] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
