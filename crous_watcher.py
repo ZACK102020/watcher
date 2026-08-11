@@ -413,6 +413,24 @@ def run_once(config):
 
     log(f"Total: {len(all_listings)} logements sur le site.")
 
+    # --- Double vérification avant de crier au loup ---
+    # Le site semble parfois bloquer/vider la réponse pour les requêtes automatisées
+    # (anti-bot) alors qu'un vrai navigateur voit un résultat normal au même moment.
+    # Avant d'alerter sur un 0, on retente une fois de plus après une pause : si le
+    # 2e essai voit vraiment des logements, on l'utilise et on continue normalement
+    # SANS alerter — ça filtre les faux positifs ponctuels sans rien perdre en fiabilité.
+    if len(all_listings) == 0:
+        log("🔁 0 logement au 1er essai — on retente une fois avant de conclure à une vraie panne...")
+        time.sleep(25)
+        try:
+            retry_listings = fetch_all_listings(search_url=search_url)
+            if len(retry_listings) > 0:
+                log(f"✅ 2e essai réussi : {len(retry_listings)} logements trouvés. Faux positif anti-bot, on continue normalement.")
+                all_listings = retry_listings
+        except Exception as e:
+            log(f"❌ 2e essai a aussi échoué techniquement : {e}")
+            # on laisse all_listings à {} vide, le garde-fou ci-dessous va s'en charger
+
     departments = config.get("departments", [])
     villes = config.get("villes", [])
     prix_max = config.get("prix_max")
@@ -424,21 +442,22 @@ def run_once(config):
     }
     log(f"{len(matching)} logements correspondent à tes filtres (départements={departments}, villes={villes}).")
 
-    # --- Garde-fou ABSOLU : 0 résultat = toujours suspect, peu importe l'historique ---
+    # --- Garde-fou ABSOLU : 0 résultat CONFIRMÉ (après double vérification) ---
     # Le site CROUS a toujours au moins plusieurs centaines de logements réels.
-    # Un total de 0 (ou une page cassée) ne peut être qu'un signe que le site est en
-    # surcharge / cassé / bloqué — jamais une vraie donnée. On alerte à CHAQUE fois
-    # que ça arrive (pas juste une fois), et on ne sauvegarde jamais un 0 comme
-    # référence, pour ne pas désactiver le garde-fou relatif ci-dessous.
+    # Un total de 0 (ou une page cassée) confirmé sur 2 tentatives ne peut être
+    # qu'un signe que le site est en surcharge / cassé / bloqué — jamais une
+    # vraie donnée. On alerte à CHAQUE fois que ça arrive (avec cooldown), et on
+    # ne sauvegarde jamais un 0 comme référence.
     if len(all_listings) == 0:
-        log("⚠️ Anomalie absolue : 0 logement sur tout le site (page cassée/surchargée). On alerte et on ignore ce run.")
+        log("⚠️ Anomalie absolue confirmée : 0 logement sur tout le site après 2 tentatives. On alerte et on ignore ce run.")
         try:
             send_alert_email(
                 config,
                 "Le site renvoie 0 résultat (probablement surchargé ou cassé)",
-                f"Le scan a réussi techniquement mais a trouvé 0 logement sur tout le site, "
-                f"ce qui n'arrive jamais en temps normal. Le site est probablement en surcharge "
-                f"('VOUS ÊTES TROP NOMBREUX') ou temporairement cassé.\n\n"
+                f"Le scan a réussi techniquement (2 tentatives, à ~25s d'intervalle) mais a trouvé "
+                f"0 logement sur tout le site, ce qui n'arrive jamais en temps normal. Le site est "
+                f"probablement en surcharge ('VOUS ÊTES TROP NOMBREUX'), bloque les requêtes "
+                f"automatisées, ou est temporairement cassé.\n\n"
                 f"Vérifie manuellement : {BASE_URL}",
                 cooldown_key="zero_resultat",
             )
