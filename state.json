@@ -1,10 +1,10 @@
 {
   "seen_ids": [
-    "1716",
-    "363"
+    "363",
+    "1716"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-08-15 06:40:46",
+  "last_success": "2026-08-15 06:50:34",
   "light_signature": {
     "total_count": null,
     "total_pages": 1,
@@ -15,6 +15,7 @@
       "1306",
       "1458",
       "1521",
+      "1623",
       "1995",
       "2147",
       "2169",
