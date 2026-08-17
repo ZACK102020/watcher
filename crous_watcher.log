@@ -56446,3 +56446,13 @@
 [2026-08-17 08:46:04] ✅ 2e essai réussi : 27 logements trouvés. Faux positif anti-bot, on continue normalement.
 [2026-08-17 08:46:04] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-08-17 08:46:04] Rien de nouveau cette fois.
+[2026-08-17 08:50:36] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-08-17 08:50:36] Récupération des annonces CROUS (toutes pages)...
+[2026-08-17 08:50:37] Page 1/1 — 0 logements cumulés
+[2026-08-17 08:50:37] Total: 0 logements sur le site.
+[2026-08-17 08:50:37] 🔁 0 logement au 1er essai — on retente une fois avant de conclure à une vraie panne...
+[2026-08-17 08:51:03] Page 1/2 — 24 logements cumulés
+[2026-08-17 08:51:03] Page 2/2 — 27 logements cumulés
+[2026-08-17 08:51:03] ✅ 2e essai réussi : 27 logements trouvés. Faux positif anti-bot, on continue normalement.
+[2026-08-17 08:51:03] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-17 08:51:03] Rien de nouveau cette fois.
