@@ -56264,3 +56264,11 @@
 [2026-08-17 07:29:37] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-17 07:29:38] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
 [2026-08-17 07:29:38] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
+[2026-08-17 07:30:45] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-08-17 07:30:45] Récupération des annonces CROUS (toutes pages)...
+[2026-08-17 07:30:50] ⚠️  Requête échouée (tentative 1/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-17 07:30:56] Page 1/2 — 24 logements cumulés
+[2026-08-17 07:31:00] Page 2/2 — 25 logements cumulés
+[2026-08-17 07:31:00] Total: 25 logements sur le site.
+[2026-08-17 07:31:00] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-17 07:31:00] Rien de nouveau cette fois.
