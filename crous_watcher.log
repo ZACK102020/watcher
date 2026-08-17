@@ -56170,3 +56170,15 @@
 [2026-08-17 06:40:39] Rien de nouveau cette fois.
 [2026-08-17 06:45:37] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
 [2026-08-17 06:50:36] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-17 06:55:27] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-08-17 06:55:27] Récupération des annonces CROUS (toutes pages)...
+[2026-08-17 06:55:33] ⚠️  Requête échouée (tentative 1/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-17 06:55:40] ⚠️  Requête échouée (tentative 2/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-17 06:55:49] ⚠️  Requête échouée (tentative 3/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-17 06:56:02] ⚠️  Requête échouée (tentative 4/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-17 06:56:23] ⚠️  Requête échouée (tentative 5/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-17 06:57:00] ⚠️  Requête échouée (tentative 6/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-17 06:58:00] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-08-17 06:58:00] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-08-17 06:58:01] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
+[2026-08-17 06:58:03] 📧 Email d'alerte envoyé : Le scraping a échoué
