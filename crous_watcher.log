@@ -57821,3 +57821,15 @@
 [2026-08-17 22:07:33] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-17 22:07:34] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
 [2026-08-17 22:07:36] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-08-17 22:10:34] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-08-17 22:10:34] Récupération des annonces CROUS (toutes pages)...
+[2026-08-17 22:10:35] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-17 22:10:37] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-17 22:10:41] ⚠️  Requête échouée (tentative 3/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-17 22:10:50] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-17 22:11:06] ⚠️  Requête échouée (tentative 5/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-17 22:11:38] ⚠️  Requête échouée (tentative 6/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-17 22:12:38] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-08-17 22:12:38] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-08-17 22:12:39] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
+[2026-08-17 22:12:39] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
