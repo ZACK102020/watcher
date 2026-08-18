@@ -59204,3 +59204,4 @@
 [2026-08-18 12:22:43] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-18 12:22:44] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
 [2026-08-18 12:22:45] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-08-18 12:25:27] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
