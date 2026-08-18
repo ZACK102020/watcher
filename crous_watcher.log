@@ -59143,3 +59143,9 @@
 [2026-08-18 11:34:59] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-18 11:35:00] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
 [2026-08-18 11:35:01] 📧 Email d'alerte envoyé : Le scraping a échoué
+[2026-08-18 11:39:55] 🔎 Scan complet périodique (sécurité, 30 min écoulées) même si rien détecté en léger.
+[2026-08-18 11:39:55] Récupération des annonces CROUS (toutes pages)...
+[2026-08-18 11:39:55] Page 1/1 — 24 logements cumulés
+[2026-08-18 11:39:55] Total: 24 logements sur le site.
+[2026-08-18 11:39:55] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-18 11:39:55] Rien de nouveau cette fois.
