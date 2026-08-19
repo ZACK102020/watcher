@@ -62141,3 +62141,4 @@
 [2026-08-19 17:24:43] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-19 17:24:44] ❌ Redécouverte automatique impossible non plus : La découverte a renvoyé la même URL, le site est probablement juste indisponible.
 [2026-08-19 17:24:44] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
+[2026-08-19 17:25:31] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
