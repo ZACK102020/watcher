@@ -64467,3 +64467,4 @@
 [2026-08-20 17:32:52] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-20 17:32:53] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-08-20 17:32:53] 🔇 Alerte 'scraping_echoue' déjà envoyée récemment, on n'en renvoie pas (cooldown 45min).
+[2026-08-20 17:35:30] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
