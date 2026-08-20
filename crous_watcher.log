@@ -62862,3 +62862,16 @@
 [2026-08-20 02:07:34] Total: 20 logements sur le site.
 [2026-08-20 02:07:34] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-08-20 02:07:34] Rien de nouveau cette fois.
+[2026-08-20 02:10:36] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-20 02:10:39] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-20 02:10:43] ⚠️  Requête échouée (tentative 3/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-20 02:10:51] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-20 02:11:08] ⚠️  Requête échouée (tentative 5/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-20 02:11:40] ⚠️  Requête échouée (tentative 6/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-20 02:12:40] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-08-20 02:12:40] On tente un check complet par sécurité.
+[2026-08-20 02:12:40] Récupération des annonces CROUS (toutes pages)...
+[2026-08-20 02:12:41] Page 1/1 — 20 logements cumulés
+[2026-08-20 02:12:41] Total: 20 logements sur le site.
+[2026-08-20 02:12:41] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-20 02:12:41] Rien de nouveau cette fois.
