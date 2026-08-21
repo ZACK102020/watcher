@@ -65997,3 +65997,24 @@
 [2026-08-21 07:50:41] Rien de nouveau cette fois.
 [2026-08-21 07:52:35] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
 [2026-08-21 07:55:31] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
+[2026-08-21 08:01:00] 📋 Résumé quotidien envoyé (3 incidents)
+[2026-08-21 08:01:01] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-21 08:01:03] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-21 08:01:08] ⚠️  Requête échouée (tentative 3/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-21 08:01:16] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-21 08:01:32] ⚠️  Requête échouée (tentative 5/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-21 08:02:05] ⚠️  Requête échouée (tentative 6/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-21 08:03:05] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-08-21 08:03:06] ❌ Redécouverte impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-08-21 08:03:06] On tente un check complet par sécurité.
+[2026-08-21 08:03:06] Récupération des annonces CROUS (toutes pages)...
+[2026-08-21 08:03:07] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-21 08:03:10] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-21 08:03:14] ⚠️  Requête échouée (tentative 3/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-21 08:03:22] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-21 08:03:39] ⚠️  Requête échouée (tentative 5/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-21 08:04:11] ⚠️  Requête échouée (tentative 6/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-21 08:05:11] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-08-21 08:05:11] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-08-21 08:05:12] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-08-21 08:05:12] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
