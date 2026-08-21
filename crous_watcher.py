@@ -325,7 +325,76 @@ def send_email(config, new_listings):
     log(f"✅ Email envoyé à {', '.join(receivers)} ({len(new_listings)} annonces)")
 
 
-ALERT_COOLDOWN_MINUTES = 45  # ne pas renvoyer la MÊME alerte plus d'une fois toutes les 45 min
+ALERT_COOLDOWN_MINUTES = 240  # ne pas renvoyer la MÊME alerte plus d'une fois toutes les 4h
+
+
+def log_alert_event(event_type, subject, message):
+    """Enregistre un incident SANS envoyer d'email immédiatement — il sera inclus
+    dans le résumé quotidien du matin. Évite d'être dérangé à chaque souci."""
+    try:
+        state = load_state()
+        state.setdefault("alert_log", []).append({
+            "time": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "type": event_type,
+            "subject": subject,
+            "message": message[:300],
+        })
+        save_state(state)
+        log(f"📝 Incident enregistré pour le résumé quotidien : {subject}")
+    except Exception as e:
+        log(f"❌ Impossible d'enregistrer l'incident: {e}")
+
+
+DAILY_DIGEST_HOUR = 8  # heure (approximative, selon fuseau du serveur) d'envoi du résumé
+
+
+def send_daily_digest_if_due(config):
+    """Envoie UN SEUL email par jour résumant tous les incidents des dernières 24h
+    (nombre, types, exemples d'erreurs), au lieu d'un email à chaque souci.
+    Envoie aussi un message rassurant s'il n'y a eu aucun incident."""
+    state = load_state()
+    today_str = time.strftime("%Y-%m-%d")
+    last_digest_date = state.get("last_digest_date")
+    current_hour = int(time.strftime("%H"))
+
+    if last_digest_date == today_str or current_hour < DAILY_DIGEST_HOUR:
+        return  # déjà envoyé aujourd'hui, ou pas encore l'heure
+
+    events = state.get("alert_log", [])
+    from collections import Counter
+    if events:
+        counts = Counter(e["type"] for e in events)
+        lines = [f"Résumé des dernières 24h — {len(events)} incident(s) au total :\n"]
+        for etype, count in counts.items():
+            lines.append(f"  • {etype} : {count} fois")
+        lines.append("\nDerniers messages (exemples) :")
+        for e in events[-5:]:
+            lines.append(f"[{e['time']}] {e['subject']}\n  {e['message']}")
+        body = "\n".join(lines)
+        subject = f"Résumé quotidien — {len(events)} incident(s) hier"
+    else:
+        body = "Aucun incident détecté durant les dernières 24h. Tout a fonctionné normalement."
+        subject = "Résumé quotidien — RAS, tout va bien"
+
+    try:
+        email_cfg = config["email"]
+        alert_receivers = parse_receivers(email_cfg.get("alert_receiver") or email_cfg["receiver"])
+        msg = MIMEText(body, "plain", "utf-8")
+        msg["Subject"] = f"📋 CROUS Watcher — {subject}"
+        msg["From"] = email_cfg["sender"]
+        msg["To"] = ", ".join(alert_receivers)
+        with smtplib.SMTP(email_cfg["smtp_server"], email_cfg["smtp_port"]) as server:
+            server.starttls()
+            server.login(email_cfg["sender"], email_cfg["password"])
+            server.sendmail(email_cfg["sender"], alert_receivers, msg.as_string())
+        log(f"📋 Résumé quotidien envoyé ({len(events)} incidents)")
+    except Exception as e:
+        log(f"❌ Impossible d'envoyer le résumé quotidien: {e}")
+        return  # on ne marque pas comme envoyé, on réessaiera au prochain check
+
+    state["last_digest_date"] = today_str
+    state["alert_log"] = []  # on repart à zéro pour les prochaines 24h
+    save_state(state)
 
 
 def send_alert_email(config, subject, body, cooldown_key=None):
@@ -397,18 +466,13 @@ def run_once(config):
         except Exception as e2:
             log(f"❌ Redécouverte automatique impossible non plus : {e2}")
             try:
-                send_alert_email(
-                    config,
+                log_alert_event(
+                    "scraping_echoue",
                     "Le scraping a échoué",
-                    f"Le script n'a pas réussi à récupérer les annonces, même après avoir tenté de "
-                    f"redécouvrir automatiquement l'URL (le CROUS a peut-être changé l'ID de l'outil, "
-                    f"ou le site est simplement indisponible).\n"
-                    f"URL utilisée : {search_url}\nErreur d'origine : {e}\n\n"
-                    f"Vérifie manuellement le site : {HOMEPAGE_URL}",
-                    cooldown_key="scraping_echoue",
+                    f"URL utilisée : {search_url}\nErreur d'origine : {e}",
                 )
             except Exception as mail_err:
-                log(f"❌ Impossible d'envoyer l'email d'alerte non plus : {mail_err}")
+                log(f"❌ Impossible d'enregistrer l'incident: {mail_err}")
             return  # on ne touche pas au state, on retentera au prochain run
 
     log(f"Total: {len(all_listings)} logements sur le site.")
@@ -449,20 +513,16 @@ def run_once(config):
     # vraie donnée. On alerte à CHAQUE fois que ça arrive (avec cooldown), et on
     # ne sauvegarde jamais un 0 comme référence.
     if len(all_listings) == 0:
-        log("⚠️ Anomalie absolue confirmée : 0 logement sur tout le site après 2 tentatives. On alerte et on ignore ce run.")
+        log("⚠️ Anomalie absolue confirmée : 0 logement sur tout le site après 2 tentatives. On enregistre pour le résumé quotidien.")
         try:
-            send_alert_email(
-                config,
+            log_alert_event(
+                "zero_resultat",
                 "Le site renvoie 0 résultat (probablement surchargé ou cassé)",
-                f"Le scan a réussi techniquement (2 tentatives, à ~25s d'intervalle) mais a trouvé "
-                f"0 logement sur tout le site, ce qui n'arrive jamais en temps normal. Le site est "
-                f"probablement en surcharge ('VOUS ÊTES TROP NOMBREUX'), bloque les requêtes "
-                f"automatisées, ou est temporairement cassé.\n\n"
-                f"Vérifie manuellement : {BASE_URL}",
-                cooldown_key="zero_resultat",
+                f"Confirmé sur 2 tentatives (~25s d'intervalle). Site probablement en surcharge "
+                f"('VOUS ÊTES TROP NOMBREUX') ou bloque les requêtes automatisées.",
             )
         except Exception as mail_err:
-            log(f"❌ Impossible d'envoyer l'email d'alerte: {mail_err}")
+            log(f"❌ Impossible d'enregistrer l'incident: {mail_err}")
         return  # on ne touche JAMAIS au state avec un total de 0
 
     # --- Garde-fou anti "échec silencieux" ---
@@ -472,17 +532,13 @@ def run_once(config):
     if last_total_matching and last_total_matching >= 5 and len(matching) < last_total_matching * 0.3:
         log(f"⚠️ Anomalie: {len(matching)} logements trouvés vs {last_total_matching} au dernier run (chute >70%).")
         try:
-            send_alert_email(
-                config,
+            log_alert_event(
+                "chute_brutale",
                 "Anomalie détectée (chute brutale du nombre d'annonces)",
-                f"Dernier run : {last_total_matching} logements correspondants.\n"
-                f"Ce run : {len(matching)} logements correspondants.\n\n"
-                f"Le site a peut-être changé de structure (le parsing casse silencieusement), "
-                f"ou c'est une vraie chute de dispo. Vérifie manuellement : {BASE_URL}",
-                cooldown_key="chute_brutale",
+                f"Dernier run : {last_total_matching} logements. Ce run : {len(matching)} logements.",
             )
         except Exception as mail_err:
-            log(f"❌ Impossible d'envoyer l'email d'alerte: {mail_err}")
+            log(f"❌ Impossible d'enregistrer l'incident: {mail_err}")
         return  # on ne met pas à jour seen_ids tant que ce n'est pas confirmé sain
 
     new_ids = set(matching.keys()) - seen_ids
@@ -542,6 +598,8 @@ def run_light_check(config):
     (nouveaux logements ni total de pages), on s'arrête là sans scraper
     les 60 pages. Permet un polling beaucoup plus fréquent sans surcharger
     le site ni risquer de se faire bloquer."""
+    send_daily_digest_if_due(config)  # vérifie si c'est l'heure d'envoyer le résumé du jour
+
     state = load_state()
     search_url = get_search_url(state)
     session = requests.Session()
