@@ -13,6 +13,7 @@
     "page1_ids": [
       "1211",
       "1224",
+      "132",
       "1458",
       "1521",
       "1995",
@@ -22,6 +23,7 @@
       "2789",
       "2881",
       "3026",
+      "3146",
       "482",
       "516",
       "522",
@@ -272,6 +274,12 @@
     },
     {
       "time": "2026-08-21 23:49:44",
+      "type": "scraping_echoue",
+      "subject": "Le scraping a échoué",
+      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
+    },
+    {
+      "time": "2026-08-22 00:07:33",
       "type": "scraping_echoue",
       "subject": "Le scraping a échoué",
       "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
