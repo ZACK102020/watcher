@@ -70086,3 +70086,9 @@
 [2026-08-23 02:05:05] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-23 02:05:06] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-08-23 02:05:06] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-08-23 02:05:27] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-08-23 02:05:27] Récupération des annonces CROUS (toutes pages)...
+[2026-08-23 02:05:28] Page 1/1 — 22 logements cumulés
+[2026-08-23 02:05:28] Total: 22 logements sur le site.
+[2026-08-23 02:05:28] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-23 02:05:28] Rien de nouveau cette fois.
