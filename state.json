@@ -293,6 +293,12 @@
       "type": "scraping_echoue",
       "subject": "Le scraping a échoué",
       "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
+    },
+    {
+      "time": "2026-08-24 23:38:06",
+      "type": "scraping_echoue",
+      "subject": "Le scraping a échoué",
+      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
     }
   ],
   "last_digest_date": "2026-08-24"
