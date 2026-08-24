@@ -74803,3 +74803,4 @@
 [2026-08-24 22:42:39] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-24 22:42:40] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-08-24 22:42:40] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-08-24 22:45:34] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
