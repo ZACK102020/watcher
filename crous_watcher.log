@@ -73622,3 +73622,18 @@
 [2026-08-24 13:39:36] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-08-24 13:39:37] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-08-24 13:39:37] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-08-24 13:40:36] ⚠️  Requête échouée (tentative 1/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-24 13:40:39] ⚠️  Requête échouée (tentative 2/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-24 13:40:43] ⚠️  Requête échouée (tentative 3/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-24 13:40:51] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-24 13:41:08] ⚠️  Requête échouée (tentative 5/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-24 13:41:40] ⚠️  Requête échouée (tentative 6/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-24 13:42:40] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-08-24 13:42:41] ❌ Redécouverte impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-08-24 13:42:41] On tente un check complet par sécurité.
+[2026-08-24 13:42:41] Récupération des annonces CROUS (toutes pages)...
+[2026-08-24 13:42:41] Page 1/2 — 24 logements cumulés
+[2026-08-24 13:42:42] Page 2/2 — 28 logements cumulés
+[2026-08-24 13:42:42] Total: 28 logements sur le site.
+[2026-08-24 13:42:42] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-24 13:42:42] Rien de nouveau cette fois.
