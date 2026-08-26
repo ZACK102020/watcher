@@ -1,12 +1,12 @@
 {
   "seen_ids": [
-    "1716",
-    "363",
     "3005",
-    "3006"
+    "363",
+    "3006",
+    "1716"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-08-26 07:45:38",
+  "last_success": "2026-08-26 08:01:02",
   "light_signature": {
     "total_count": null,
     "total_pages": 2,
@@ -14,18 +14,18 @@
       "1132",
       "1211",
       "1224",
-      "1458",
       "1521",
       "1596",
       "1623",
       "182",
       "1995",
-      "2255",
       "2477",
       "2608",
       "2715",
       "2881",
+      "291",
       "298",
+      "3106",
       "3242",
       "482",
       "506",
@@ -41,25 +41,6 @@
     "zero_resultat": "2026-08-11 12:30:49",
     "scraping_echoue": "2026-08-21 06:42:44"
   },
-  "alert_log": [
-    {
-      "time": "2026-08-25 08:03:03",
-      "type": "scraping_echoue",
-      "subject": "Le scraping a échoué",
-      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
-    },
-    {
-      "time": "2026-08-25 08:17:42",
-      "type": "scraping_echoue",
-      "subject": "Le scraping a échoué",
-      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
-    },
-    {
-      "time": "2026-08-25 15:55:13",
-      "type": "scraping_echoue",
-      "subject": "Le scraping a échoué",
-      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search"
-    }
-  ],
-  "last_digest_date": "2026-08-25"
+  "alert_log": [],
+  "last_digest_date": "2026-08-26"
 }
