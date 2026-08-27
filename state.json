@@ -1,17 +1,17 @@
 {
   "seen_ids": [
+    "3006",
     "3005",
-    "363",
     "1716",
-    "3006"
+    "363"
   ],
   "last_total_matching": 0,
-  "last_success": "2026-08-27 07:55:33",
+  "last_success": "2026-08-27 08:01:00",
   "light_signature": {
     "total_count": null,
     "total_pages": 2,
     "page1_ids": [
-      "1224",
+      "1211",
       "123",
       "1298",
       "1356",
@@ -42,5 +42,5 @@
     "scraping_echoue": "2026-08-21 06:42:44"
   },
   "alert_log": [],
-  "last_digest_date": "2026-08-26"
+  "last_digest_date": "2026-08-27"
 }
