@@ -80236,3 +80236,6 @@
 [2026-08-28 14:44:47] Total: 28 logements sur le site.
 [2026-08-28 14:44:47] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
 [2026-08-28 14:44:47] Rien de nouveau cette fois.
+[2026-08-28 14:45:43] ⚠️  Requête échouée (tentative 1/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-28 14:45:50] ⚠️  Requête échouée (tentative 2/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-28 14:46:00] Check léger : rien de changé sur la page 1, pas besoin de scanner en entier.
