@@ -41,6 +41,13 @@
     "zero_resultat": "2026-08-11 12:30:49",
     "scraping_echoue": "2026-08-21 06:42:44"
   },
-  "alert_log": [],
+  "alert_log": [
+    {
+      "time": "2026-08-28 14:56:53",
+      "type": "scraping_echoue",
+      "subject": "Le scraping a échoué",
+      "message": "URL utilisée : https://trouverunlogement.lescrous.fr/tools/47/search\nErreur d'origine : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search?page=2"
+    }
+  ],
   "last_digest_date": "2026-08-28"
 }
