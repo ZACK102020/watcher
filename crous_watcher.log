@@ -80342,3 +80342,10 @@
 [2026-08-28 15:29:03] ⚠️  Requête échouée (tentative 3/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
 [2026-08-28 15:29:11] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/
 [2026-08-28 15:29:11] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-08-28 15:30:49] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-08-28 15:30:49] Récupération des annonces CROUS (toutes pages)...
+[2026-08-28 15:30:50] Page 1/2 — 24 logements cumulés
+[2026-08-28 15:30:50] Page 2/2 — 29 logements cumulés
+[2026-08-28 15:30:51] Total: 29 logements sur le site.
+[2026-08-28 15:30:51] 0 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-08-28 15:30:51] Rien de nouveau cette fois.
