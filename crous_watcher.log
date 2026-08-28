@@ -80283,3 +80283,29 @@
 [2026-08-28 15:06:26] ⚠️  Requête échouée (tentative 3/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
 [2026-08-28 15:06:34] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/
 [2026-08-28 15:06:34] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-08-28 15:10:40] ⚠️  Requête échouée (tentative 1/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-28 15:10:47] ⚠️  Requête échouée (tentative 2/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-28 15:10:56] ⚠️  Requête échouée (tentative 3/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-28 15:11:09] ⚠️  Requête échouée (tentative 4/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-28 15:11:30] ⚠️  Requête échouée (tentative 5/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-28 15:12:07] ⚠️  Requête échouée (tentative 6/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-28 15:13:07] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-08-28 15:13:27] ⚠️  Requête échouée (tentative 1/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/availability. Nouvelle tentative dans 2s.
+[2026-08-28 15:13:34] ⚠️  Requête échouée (tentative 2/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 4s.
+[2026-08-28 15:13:43] ⚠️  Requête échouée (tentative 3/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
+[2026-08-28 15:13:51] ❌ Redécouverte impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/
+[2026-08-28 15:13:51] On tente un check complet par sécurité.
+[2026-08-28 15:13:51] Récupération des annonces CROUS (toutes pages)...
+[2026-08-28 15:13:57] ⚠️  Requête échouée (tentative 1/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-08-28 15:14:04] ⚠️  Requête échouée (tentative 2/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-08-28 15:14:13] ⚠️  Requête échouée (tentative 3/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-08-28 15:14:42] ⚠️  Requête échouée (tentative 4/6) — 500 Server Error: Internal Server Error for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-08-28 15:15:03] ⚠️  Requête échouée (tentative 5/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-08-28 15:15:40] ⚠️  Requête échouée (tentative 6/6) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-08-28 15:16:40] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-08-28 15:16:40] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-08-28 15:16:47] ⚠️  Requête échouée (tentative 1/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 2s.
+[2026-08-28 15:16:54] ⚠️  Requête échouée (tentative 2/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 4s.
+[2026-08-28 15:17:03] ⚠️  Requête échouée (tentative 3/3) — 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/. Nouvelle tentative dans 8s.
+[2026-08-28 15:17:11] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: 502 Server Error: Bad Gateway for url: https://trouverunlogement.lescrous.fr/
+[2026-08-28 15:17:11] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
