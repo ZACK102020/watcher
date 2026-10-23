@@ -83954,3 +83954,23 @@
 [2026-10-23 18:36:39] ⚠️  Requête échouée (tentative 3/3) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to establish a new connection: [Errno 111] Connection refused")). Nouvelle tentative dans 8s.
 [2026-10-23 18:36:47] ❌ Redécouverte automatique impossible non plus : Échec définitif après 3 tentatives sur https://trouverunlogement.lescrous.fr/: HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to establish a new connection: [Errno 111] Connection refused"))
 [2026-10-23 18:36:47] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-10-23 21:36:23] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-10-23 21:36:25] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-10-23 21:36:29] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-10-23 21:36:39] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-10-23 21:36:55] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-10-23 21:37:28] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-10-23 21:38:28] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-10-23 21:38:29] ❌ Redécouverte impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-10-23 21:38:29] On tente un check complet par sécurité.
+[2026-10-23 21:38:29] Récupération des annonces CROUS (toutes pages)...
+[2026-10-23 21:38:30] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-10-23 21:38:32] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-10-23 21:38:36] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-10-23 21:38:45] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-10-23 21:39:02] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-10-23 21:39:34] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-10-23 21:40:34] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-10-23 21:40:34] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-10-23 21:40:35] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-10-23 21:40:35] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
