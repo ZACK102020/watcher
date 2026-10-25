@@ -84196,3 +84196,23 @@
 [2026-10-25 12:10:23] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-10-25 12:10:24] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-10-25 12:10:24] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-10-25 16:08:03] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-10-25 16:08:05] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-10-25 16:08:09] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-10-25 16:08:18] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-10-25 16:08:34] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-10-25 16:09:07] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-10-25 16:10:07] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-10-25 16:10:07] ❌ Redécouverte impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-10-25 16:10:07] On tente un check complet par sécurité.
+[2026-10-25 16:10:07] Récupération des annonces CROUS (toutes pages)...
+[2026-10-25 16:10:10] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-10-25 16:10:12] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-10-25 16:10:16] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-10-25 16:10:25] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-10-25 16:10:43] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-10-25 16:11:15] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-10-25 16:12:15] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-10-25 16:12:15] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-10-25 16:12:16] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-10-25 16:12:16] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
