@@ -84316,3 +84316,12 @@
 [2026-10-26 07:00:29] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-10-26 07:00:29] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-10-26 07:00:29] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-10-26 13:57:32] 📋 Résumé quotidien envoyé (7 incidents)
+[2026-10-26 13:57:33] 🔎 Check léger : changement détecté sur la page 1 → scan complet.
+[2026-10-26 13:57:33] Récupération des annonces CROUS (toutes pages)...
+[2026-10-26 13:57:34] Page 1/5 — 24 logements cumulés
+[2026-10-26 13:57:37] Page 5/5 — 97 logements cumulés
+[2026-10-26 13:57:37] Total: 97 logements sur le site.
+[2026-10-26 13:57:37] 5 logements correspondent à tes filtres (départements=['75', '77', '78', '91', '92', '93', '94', '95'], villes=[]).
+[2026-10-26 13:57:37] 🎉 2 nouvelle(s) annonce(s) !
+[2026-10-26 13:57:38] ✅ Email envoyé à ezzakizakariae@gmail.com, ktirihajr@gmail.com (2 annonces)
