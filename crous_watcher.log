@@ -84747,3 +84747,24 @@
 [2026-11-05 01:59:16] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
 [2026-11-05 01:59:17] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
 [2026-11-05 01:59:17] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
+[2026-11-05 08:57:28] 📋 Résumé quotidien envoyé (4 incidents)
+[2026-11-05 08:57:31] ⚠️  Requête échouée (tentative 1/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/47/search (Caused by NameResolutionError("HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443): Failed to resolve 'trouverunlogement.lescrous.fr' ([Errno -5] No address associated with hostname)")). Nouvelle tentative dans 2s.
+[2026-11-05 08:58:01] ⚠️  Requête échouée (tentative 2/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/47/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443) at 0x7f1725e9f050>, 'Connection to trouverunlogement.lescrous.fr timed out. (connect timeout=25)')). Nouvelle tentative dans 4s.
+[2026-11-05 08:58:30] ⚠️  Requête échouée (tentative 3/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/47/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443) at 0x7f1725e9f200>, 'Connection to trouverunlogement.lescrous.fr timed out. (connect timeout=25)')). Nouvelle tentative dans 8s.
+[2026-11-05 08:59:05] ⚠️  Requête échouée (tentative 4/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/47/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443) at 0x7f1725e9fd10>, 'Connection to trouverunlogement.lescrous.fr timed out. (connect timeout=25)')). Nouvelle tentative dans 16s.
+[2026-11-05 08:59:46] ⚠️  Requête échouée (tentative 5/6) — HTTPSConnectionPool(host='trouverunlogement.lescrous.fr', port=443): Max retries exceeded with url: /tools/47/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='trouverunlogement.lescrous.fr', port=443) at 0x7f1725cd00b0>, 'Connection to trouverunlogement.lescrous.fr timed out. (connect timeout=25)')). Nouvelle tentative dans 32s.
+[2026-11-05 09:00:19] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-11-05 09:01:19] ❌ Check léger impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Tentative de redécouverte automatique...
+[2026-11-05 09:01:20] ❌ Redécouverte impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-11-05 09:01:20] On tente un check complet par sécurité.
+[2026-11-05 09:01:20] Récupération des annonces CROUS (toutes pages)...
+[2026-11-05 09:01:20] ⚠️  Requête échouée (tentative 1/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 2s.
+[2026-11-05 09:01:23] ⚠️  Requête échouée (tentative 2/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 4s.
+[2026-11-05 09:01:27] ⚠️  Requête échouée (tentative 3/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 8s.
+[2026-11-05 09:01:36] ⚠️  Requête échouée (tentative 4/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 16s.
+[2026-11-05 09:01:52] ⚠️  Requête échouée (tentative 5/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 32s.
+[2026-11-05 09:02:25] ⚠️  Requête échouée (tentative 6/6) — 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search. Nouvelle tentative dans 60s.
+[2026-11-05 09:03:25] ❌ Scraping impossible avec https://trouverunlogement.lescrous.fr/tools/47/search : Échec définitif après 6 tentatives sur https://trouverunlogement.lescrous.fr/tools/47/search: 404 Client Error: Not Found for url: https://trouverunlogement.lescrous.fr/tools/47/search
+[2026-11-05 09:03:25] 🔎 Tentative de redécouverte automatique de l'URL (le CROUS a peut-être changé l'ID de l'outil)...
+[2026-11-05 09:03:25] ❌ Redécouverte automatique impossible non plus : Lien 'Pour l'année prochaine' introuvable sur la page d'accueil
+[2026-11-05 09:03:25] 📝 Incident enregistré pour le résumé quotidien : Le scraping a échoué
